@@ -6,9 +6,12 @@ class Block {
     this.timestamp = timestamp;
     this.data = data;
     this.prevHash = preHash;
-    this.thisHash = sha256(this.index + this.timestamp + this.data + this.prevHash);
+    this.thisHash = sha256(
+      this.index + this.timestamp + this.data + this.prevHash
+    );
   }  
 }
+
 const createGenesisBlock = () => new Block(0, Date.now(), 'Genesis Block', '0');
 
 const nextBlock = (LastBlock, data) =>
